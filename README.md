@@ -45,3 +45,14 @@ To become Africa’s agricultural operating system—empowering farmers, streaml
 
 ## 📦 Folder Structure
 
+HarvestLink-Marketplace/
+── frontend/
+── backend/
+── database/
+── docs/ 
+── scripts/
+── .env.example 
+── LICENSE 
+── README.md 
+── CONTRIBUTING.md
+
