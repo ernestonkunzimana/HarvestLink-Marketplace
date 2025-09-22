@@ -18,11 +18,11 @@ We welcome developers, researchers, and partners passionate about transforming a
 
 ## 📬 Contact
 
-For partnerships, pilot deployments, or funding inquiries, reach out via [your email or website].
+For partnerships, pilot deployments, or funding inquiries, reach out via nkernest666@gmail.com.
 
 ---
 
 ## 📄 License
 
-This project is licensed under [your chosen license].
+This project is licensed under MIT license.
 
