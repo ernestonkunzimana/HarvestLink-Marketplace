@@ -13,7 +13,11 @@ import {
   FileText,
   Shield,
   Home,
-  X
+  X,
+  TrendingUp,
+  CreditCard,
+  Link,
+  Globe
 } from 'lucide-react';
 import { authService } from '@/lib/auth';
 import { UserRole } from '@/types';
@@ -29,16 +33,23 @@ const navigationItems = {
     { href: '/cooperative/inventory', label: 'Inventory', icon: Package },
     { href: '/cooperative/bids', label: 'Bids', icon: Gavel },
     { href: '/cooperative/transactions', label: 'Transactions', icon: Receipt },
+    { href: '/payments/escrow', label: 'Escrow', icon: CreditCard },
+    { href: '/traceability', label: 'Traceability', icon: Link },
   ],
   buyer: [
     { href: '/buyer/marketplace', label: 'Marketplace', icon: Store },
     { href: '/buyer/bids', label: 'My Bids', icon: Gavel },
     { href: '/buyer/transactions', label: 'Transactions', icon: Receipt },
+    { href: '/payments/escrow', label: 'Escrow', icon: CreditCard },
+    { href: '/regional', label: 'Regional Trade', icon: Globe },
   ],
   government: [
     { href: '/gov/dashboard', label: 'Dashboard', icon: BarChart3 },
     { href: '/gov/reports', label: 'Reports', icon: FileText },
     { href: '/gov/compliance', label: 'Compliance', icon: Shield },
+    { href: '/ai/price-prediction', label: 'Price Prediction', icon: TrendingUp },
+    { href: '/analytics/farmer-income', label: 'Farmer Analytics', icon: BarChart3 },
+    { href: '/regional', label: 'Regional Trade', icon: Globe },
   ],
 };
 

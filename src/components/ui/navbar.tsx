@@ -11,9 +11,10 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Badge } from '@/components/ui/badge';
-import { Bell, Globe, LogOut, Menu, User } from 'lucide-react';
+import { Bell, Globe, LogOut, Menu, User, Moon, Sun } from 'lucide-react';
 import { authService } from '@/lib/auth';
 import { UserRole } from '@/types';
+import { mockNotifications } from '@/lib/mock-data';
 
 interface NavbarProps {
   onMenuClick?: () => void;
@@ -22,11 +23,17 @@ interface NavbarProps {
 export function Navbar({ onMenuClick }: NavbarProps) {
   const router = useRouter();
   const [language, setLanguage] = useState('en');
+  const [darkMode, setDarkMode] = useState(false);
   const user = authService.getCurrentUser();
 
   const handleLogout = () => {
     authService.logout();
     router.push('/login');
+  };
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+    document.documentElement.classList.toggle('dark');
   };
 
   const getRoleBadgeColor = (role: UserRole) => {
@@ -47,6 +54,8 @@ export function Navbar({ onMenuClick }: NavbarProps) {
     { code: 'rw', name: 'Kinyarwanda' },
     { code: 'fr', name: 'Français' }
   ];
+
+  const unreadNotifications = mockNotifications.filter(n => !n.read && n.userId === user?.id).length;
 
   return (
     <nav className="bg-white border-b border-gray-200 px-4 py-3">
@@ -90,13 +99,32 @@ export function Navbar({ onMenuClick }: NavbarProps) {
             </DropdownMenuContent>
           </DropdownMenu>
 
-          {/* Notifications */}
-          <Button variant="ghost" size="sm" className="relative">
-            <Bell className="h-4 w-4" />
-            <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
-              3
-            </span>
+          {/* Dark Mode Toggle */}
+          <Button variant="ghost" size="sm" onClick={toggleDarkMode}>
+            {darkMode ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
           </Button>
+
+          {/* Notifications */}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" size="sm" className="relative">
+                <Bell className="h-4 w-4" />
+                {unreadNotifications > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                    {unreadNotifications}
+                  </span>
+                )}
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-80">
+              {mockNotifications.slice(0, 5).map((notification) => (
+                <DropdownMenuItem key={notification.id} className="flex flex-col items-start p-3">
+                  <p className="font-medium text-sm">{notification.title}</p>
+                  <p className="text-xs text-gray-600">{notification.message}</p>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
 
           {/* User Menu */}
           {user && (
