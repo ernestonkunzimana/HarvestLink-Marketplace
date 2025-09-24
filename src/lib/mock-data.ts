@@ -67,6 +67,19 @@ export const mockProduce: Produce[] = [
     location: 'Musanze',
     harvestDate: '2024-01-20',
     status: 'available'
+  },
+  {
+    id: '4',
+    cooperativeId: '3',
+    cooperativeName: 'Southern Beans Collective',
+    crop: 'Beans',
+    quantity: 400,
+    unit: 'kg',
+    quality: 'Grade B',
+    pricePerUnit: 350,
+    location: 'Huye',
+    harvestDate: '2024-01-12',
+    status: 'available'
   }
 ];
 
@@ -99,6 +112,20 @@ export const mockBids: Bid[] = [
     totalAmount: 225000,
     status: 'accepted',
     submittedAt: '2024-01-24T14:15:00Z'
+  },
+  {
+    id: '3',
+    produceId: '3',
+    buyerId: '2',
+    buyerName: 'AgriTrade Rwanda Ltd',
+    cooperativeId: '2',
+    cooperativeName: 'Musanze Coffee Growers',
+    crop: 'Coffee',
+    quantity: 150,
+    pricePerUnit: 2400,
+    totalAmount: 360000,
+    status: 'rejected',
+    submittedAt: '2024-01-23T09:20:00Z'
   }
 ];
 
@@ -121,6 +148,21 @@ export const mockTransactions: Transaction[] = [
   {
     id: '2',
     produceId: '4',
+    cooperativeId: '3',
+    cooperativeName: 'Southern Beans Collective',
+    buyerId: '2',
+    buyerName: 'AgriTrade Rwanda Ltd',
+    crop: 'Beans',
+    quantity: 200,
+    pricePerUnit: 350,
+    totalAmount: 70000,
+    status: 'completed',
+    completedAt: '2024-01-23T11:30:00Z',
+    paymentMethod: 'Bank Transfer'
+  },
+  {
+    id: '3',
+    produceId: '3',
     cooperativeId: '2',
     cooperativeName: 'Musanze Coffee Growers',
     buyerId: '3',
@@ -129,9 +171,9 @@ export const mockTransactions: Transaction[] = [
     quantity: 150,
     pricePerUnit: 2400,
     totalAmount: 360000,
-    status: 'completed',
-    completedAt: '2024-01-23T11:30:00Z',
-    paymentMethod: 'Bank Transfer'
+    status: 'pending',
+    completedAt: '2024-01-25T09:00:00Z',
+    paymentMethod: 'Escrow'
   }
 ];
 
@@ -150,11 +192,22 @@ export const mockComplianceAlerts: ComplianceAlert[] = [
   {
     id: '2',
     type: 'tax_compliance',
-    transactionId: '2',
+    transactionId: '3',
     cooperativeName: 'Musanze Coffee Growers',
     buyerName: 'Export Partners Ltd',
     description: 'Export tax documentation pending verification',
     severity: 'high',
+    createdAt: '2024-01-25T09:30:00Z',
+    status: 'open'
+  },
+  {
+    id: '3',
+    type: 'quality_issue',
+    transactionId: '2',
+    cooperativeName: 'Southern Beans Collective',
+    buyerName: 'AgriTrade Rwanda Ltd',
+    description: 'Quality inspection report missing for beans shipment',
+    severity: 'low',
     createdAt: '2024-01-23T12:00:00Z',
     status: 'resolved'
   }
@@ -187,6 +240,15 @@ export const mockPricePredictions: PricePrediction[] = [
     month: '2024-03',
     confidence: 92,
     factors: ['Global coffee shortage', 'Premium quality demand', 'Export contracts']
+  },
+  {
+    id: '4',
+    crop: 'Beans',
+    currentPrice: 350,
+    predictedPrice: 380,
+    month: '2024-03',
+    confidence: 73,
+    factors: ['Regional demand', 'Protein market growth']
   }
 ];
 
@@ -205,7 +267,7 @@ export const mockEscrowTransactions: EscrowTransaction[] = [
   {
     id: '2',
     transactionId: '3',
-    amount: 180000,
+    amount: 360000,
     status: 'pending',
     buyerName: 'Export Partners Ltd',
     cooperativeName: 'Musanze Coffee Growers',
@@ -251,6 +313,18 @@ export const mockTraceabilityRecords: TraceabilityRecord[] = [
     processingDate: '2024-01-22',
     blockchainHash: '0x9876543210fedcba0987654321abcdef',
     certifications: ['Specialty Grade', 'Rainforest Alliance', 'Direct Trade']
+  },
+  {
+    id: '3',
+    batchId: 'SBC-BN-2024-003',
+    crop: 'Beans',
+    farmer: 'Emmanuel Nkurunziza',
+    cooperative: 'Southern Beans Collective',
+    buyer: 'AgriTrade Rwanda Ltd',
+    harvestDate: '2024-01-12',
+    processingDate: '2024-01-15',
+    blockchainHash: '0xabcdef1234567890fedcba0987654321',
+    certifications: ['Grade B', 'Local Sourced']
   }
 ];
 
@@ -287,6 +361,17 @@ export const mockRegionalOffers: RegionalOffer[] = [
     exporter: 'Tanzanian Nut Processors',
     tradeAgreement: 'AfCFTA',
     availableUntil: '2024-02-10'
+  },
+  {
+    id: '4',
+    country: 'Ethiopia',
+    crop: 'Coffee',
+    quantity: 800,
+    pricePerUnit: 2800,
+    quality: 'Specialty',
+    exporter: 'Ethiopian Coffee Union',
+    tradeAgreement: 'COMESA',
+    availableUntil: '2024-02-25'
   }
 ];
 
@@ -314,6 +399,14 @@ export const mockFarmerIncomeData: FarmerIncomeData[] = [
     totalFarmers: 95,
     month: '2024-01',
     growthRate: 8.5
+  },
+  {
+    cooperativeId: '4',
+    cooperativeName: 'Northern Potato Farmers',
+    averageIncome: 520000,
+    totalFarmers: 65,
+    month: '2024-01',
+    growthRate: 18.3
   }
 ];
 
@@ -343,6 +436,24 @@ export const mockNotifications: Notification[] = [
     type: 'warning',
     read: true,
     createdAt: '2024-01-23T09:00:00Z',
+    userId: '2'
+  },
+  {
+    id: '4',
+    title: 'Compliance Alert',
+    message: 'Transaction flagged for underpricing - requires review',
+    type: 'error',
+    read: false,
+    createdAt: '2024-01-24T16:05:00Z',
+    userId: '3'
+  },
+  {
+    id: '5',
+    title: 'Bid Accepted',
+    message: 'Your bid for Rice has been accepted by Kigali Farmers Cooperative',
+    type: 'success',
+    read: true,
+    createdAt: '2024-01-24T14:15:00Z',
     userId: '2'
   }
 ];
