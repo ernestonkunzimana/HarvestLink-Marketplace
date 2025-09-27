@@ -16,8 +16,12 @@ import {
   X,
   TrendingUp,
   CreditCard,
-  Link,
-  Globe
+  Link as LinkIcon,
+  Globe,
+  Heart,
+  Users,
+  Brain,
+  Database
 } from 'lucide-react';
 import { authService } from '@/lib/auth';
 import { UserRole } from '@/types';
@@ -34,7 +38,7 @@ const navigationItems = {
     { href: '/cooperative/bids', label: 'Bids', icon: Gavel },
     { href: '/cooperative/transactions', label: 'Transactions', icon: Receipt },
     { href: '/payments/escrow', label: 'Escrow', icon: CreditCard },
-    { href: '/traceability', label: 'Traceability', icon: Link },
+    { href: '/traceability', label: 'Traceability', icon: LinkIcon },
   ],
   buyer: [
     { href: '/buyer/marketplace', label: 'Marketplace', icon: Store },
@@ -50,6 +54,31 @@ const navigationItems = {
     { href: '/ai/price-prediction', label: 'Price Prediction', icon: TrendingUp },
     { href: '/analytics/farmer-income', label: 'Farmer Analytics', icon: BarChart3 },
     { href: '/regional', label: 'Regional Trade', icon: Globe },
+  ],
+  patient: [
+    { href: '/health/dashboard', label: 'Health Dashboard', icon: Heart },
+    { href: '/health/nida-integration', label: 'My Digital ID', icon: CreditCard },
+    { href: '/health/claims', label: 'My Claims', icon: FileText },
+  ],
+  hospital: [
+    { href: '/health/dashboard', label: 'Health Dashboard', icon: Heart },
+    { href: '/health/nida-integration', label: 'Patient Lookup', icon: Users },
+    { href: '/health/claims', label: 'Claims Processing', icon: Brain },
+  ],
+  insurer: [
+    { href: '/health/dashboard', label: 'Insurance Dashboard', icon: Shield },
+    { href: '/health/claims', label: 'Claims Review', icon: FileText },
+    { href: '/health/nida-integration', label: 'Policy Verification', icon: Database },
+  ],
+  pharmacy: [
+    { href: '/health/dashboard', label: 'Pharmacy Dashboard', icon: Heart },
+    { href: '/health/nida-integration', label: 'Prescription Lookup', icon: Users },
+    { href: '/health/claims', label: 'Medication Claims', icon: Package },
+  ],
+  regulator: [
+    { href: '/health/dashboard', label: 'Regulatory Dashboard', icon: Shield },
+    { href: '/health/claims', label: 'Claims Analytics', icon: BarChart3 },
+    { href: '/health/nida-integration', label: 'System Compliance', icon: Database },
   ],
 };
 

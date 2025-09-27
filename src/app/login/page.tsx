@@ -49,6 +49,13 @@ export default function LoginPage() {
           case 'government':
             router.push('/gov/dashboard');
             break;
+          case 'patient':
+          case 'hospital':
+          case 'insurer':
+          case 'pharmacy':
+          case 'regulator':
+            router.push('/health/dashboard');
+            break;
           default:
             router.push('/');
         }
@@ -139,9 +146,16 @@ export default function LoginPage() {
           <div className="mt-4 p-3 bg-blue-50 rounded-lg">
             <p className="text-sm text-blue-800 font-medium">Demo Accounts:</p>
             <div className="text-xs text-blue-700 mt-1 space-y-1">
+              <p><strong>Agriculture:</strong></p>
               <p>Cooperative: +250788123456</p>
               <p>Buyer: +250788654321</p>
               <p>Government: +250788999888</p>
+              <p><strong>Health System:</strong></p>
+              <p>Patient: +250788111222</p>
+              <p>Hospital: +250788333444</p>
+              <p>Insurer: +250788555666</p>
+              <p>Pharmacy: +250788777888</p>
+              <p>Regulator: +250788999000</p>
             </div>
           </div>
         </CardContent>
