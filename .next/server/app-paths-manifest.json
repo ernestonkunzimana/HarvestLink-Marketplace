@@ -1,0 +1,21 @@
+{
+  "/_not-found": "app/_not-found.js",
+  "/ai/price-prediction/page": "app/ai/price-prediction/page.js",
+  "/analytics/farmer-income/page": "app/analytics/farmer-income/page.js",
+  "/buyer/bids/page": "app/buyer/bids/page.js",
+  "/buyer/marketplace/page": "app/buyer/marketplace/page.js",
+  "/buyer/transactions/page": "app/buyer/transactions/page.js",
+  "/cooperative/bids/page": "app/cooperative/bids/page.js",
+  "/cooperative/dashboard/page": "app/cooperative/dashboard/page.js",
+  "/cooperative/inventory/page": "app/cooperative/inventory/page.js",
+  "/cooperative/transactions/page": "app/cooperative/transactions/page.js",
+  "/gov/compliance/page": "app/gov/compliance/page.js",
+  "/gov/dashboard/page": "app/gov/dashboard/page.js",
+  "/gov/reports/page": "app/gov/reports/page.js",
+  "/login/page": "app/login/page.js",
+  "/page": "app/page.js",
+  "/payments/escrow/page": "app/payments/escrow/page.js",
+  "/regional/page": "app/regional/page.js",
+  "/signup/page": "app/signup/page.js",
+  "/traceability/page": "app/traceability/page.js"
+}
