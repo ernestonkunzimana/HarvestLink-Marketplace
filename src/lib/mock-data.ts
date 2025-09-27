@@ -25,6 +25,47 @@ export const mockUsers: User[] = [
     phone: '+250788999888',
     role: 'government',
     organization: 'Ministry of Agriculture'
+  },
+  // Health System Users
+  {
+    id: '4',
+    name: 'UWIMANA Jean Baptiste',
+    email: 'uwimana.jean@gmail.com',
+    phone: '+250788111222',
+    role: 'patient',
+    organization: 'Patient'
+  },
+  {
+    id: '5',
+    name: 'Dr. MUKAMANA Alice',
+    email: 'mukamana@kuh.rw',
+    phone: '+250788333444',
+    role: 'hospital',
+    organization: 'Kigali University Hospital'
+  },
+  {
+    id: '6',
+    name: 'NIYONZIMA Paul',
+    email: 'niyonzima@mutuelle.rw',
+    phone: '+250788555666',
+    role: 'insurer',
+    organization: 'Mutuelle de Santé'
+  },
+  {
+    id: '7',
+    name: 'UWINEZA Grace',
+    email: 'grace@pharmacyplus.rw',
+    phone: '+250788777888',
+    role: 'pharmacy',
+    organization: 'Pharmacy Plus'
+  },
+  {
+    id: '8',
+    name: 'MOH Regulator',
+    email: 'regulator@moh.gov.rw',
+    phone: '+250788999000',
+    role: 'regulator',
+    organization: 'Ministry of Health'
   }
 ];
 

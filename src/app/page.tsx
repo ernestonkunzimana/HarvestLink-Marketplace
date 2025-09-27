@@ -21,6 +21,13 @@ export default function HomePage() {
         case 'government':
           router.push('/gov/dashboard');
           break;
+        case 'patient':
+        case 'hospital':
+        case 'insurer':
+        case 'pharmacy':
+        case 'regulator':
+          router.push('/health/dashboard');
+          break;
         default:
           router.push('/login');
       }

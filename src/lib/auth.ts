@@ -25,7 +25,9 @@ export class AuthService {
     }
 
     this.currentUser = user;
-    localStorage.setItem('currentUser', JSON.stringify(user));
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('currentUser', JSON.stringify(user));
+    }
     return user;
   }
 
@@ -43,11 +45,18 @@ export class AuthService {
 
     // In a real app, this would save to backend
     this.currentUser = newUser;
-    localStorage.setItem('currentUser', JSON.stringify(newUser));
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('currentUser', JSON.stringify(newUser));
+    }
     return newUser;
   }
 
   getCurrentUser(): User | null {
+    if (typeof window === 'undefined') {
+      // Server-side rendering - return null
+      return null;
+    }
+    
     if (!this.currentUser) {
       const stored = localStorage.getItem('currentUser');
       if (stored) {
@@ -59,7 +68,9 @@ export class AuthService {
 
   logout(): void {
     this.currentUser = null;
-    localStorage.removeItem('currentUser');
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('currentUser');
+    }
   }
 
   isAuthenticated(): boolean {

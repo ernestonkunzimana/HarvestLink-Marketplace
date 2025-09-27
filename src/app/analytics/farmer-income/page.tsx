@@ -110,7 +110,7 @@ export default function FarmerIncomeAnalytics() {
                   textAnchor="end"
                   height={100}
                 />
-                <YAxis formatter={(value) => `RWF ${value/1000}K`} />
+                <YAxis tickFormatter={(value) => `RWF ${value/1000}K`} />
                 <Tooltip formatter={(value) => [`RWF ${value.toLocaleString()}`, 'Average Income']} />
                 <Bar dataKey="averageIncome" fill="#10b981" />
               </BarChart>
